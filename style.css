@@ -1,0 +1,12 @@
+#myBooks {
+    text-align: center;
+}
+
+.title  {
+    color : #6e6969;
+    background-color: #e2e2e2b9;
+    box-shadow: 0px 3px 0px rgba(75, 75, 75, 0.452);
+    margin-top: 5%;
+    padding: 1%;
+    
+}
