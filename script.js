@@ -30,7 +30,8 @@ const removeNewFormSearch = () => {
 
 const cancelButtonCLick = () => {
     var cancelButton = document.getElementById("cancel");
-    cancelButton.addEventListener('click', function() {
+    cancelButton.addEventListener('click', function(e) {
+        e.preventDefault(); 
         removeNewFormSearch();
         addButtonNewBook();               
     });
@@ -68,18 +69,41 @@ const ApiCallback = () => {
 }
 
 const searchResult = (response) => {
-    let Books = [];
-    let image = "introuvable";
-    for (let i of response.items) {
-        if (i.volumeInfo.imageLinks != null) {
-            image = i.volumeInfo.imageLinks;
+    var Books = [];
+    var image = "unavailable.png";
+    var description = "Information manquante";
+    if (response.totalItems > 0) {
+        for (let i of response.items) {
+            if (i.volumeInfo.imageLinks != null) {
+                image = i.volumeInfo.imageLinks.smallThumbnail;
+            }
+            if (i.volumeInfo.description != "" || i.volumeInfo.description != "") {
+                description = i.volumeInfo.description;
+            }
+            Books.push(new Book(i.id, i.volumeInfo.title, i.volumeInfo.authors[0], image, i.volumeInfo.description));
+            
         }
-        console.log(image);
-        Books.push(new Book(i.id, i.volumeInfo.title, i.volumeInfo.authors[0], i.volumeInfo.imageLinks[1], i.volumeInfo.description));
-        
     }
     console.log(Books);
-    return Books;
+    addSearchResult(Books);
+
+}
+
+const addSearchResult = (books) => {
+    var content = document.getElementById("content");
+    content.innerHTML = "<h2>Résultats de recherhce</h2>";
+    var resultPosition = document.querySelector("#content > h2");
+    var section = document.createElement("section");
+    section.setAttribute("class","bookResults");
+    if (books.length > 0 ) {
+        for (let book of books) {
+            section.innerHTML += '<article class=sectionBook ><p class="titleBooks">Titre du livre : ' + book.title + '</p><i class="fas fa-bookmark"></i><p class="idBooks">Id : ' + book.id + '</p><p class="authorBooks">Auteur : ' + book.author + '</p><p class="descriptionBook">Description : ' + book.description + '</p><img class = "imageBook" src=' + book.image + '></article>';
+            resultPosition.after(section);
+        }
+    } else {
+        section.innerHTML = '<p class="searchNull">Aucun livre n’a été trouvé</p>'
+        resultPosition.after(section);
+    }
 
 }
 
