@@ -61,7 +61,7 @@ body {
     width: 45%;
     background-color: #E0E0E0;
     border: solid black 1px;
-    padding: 10px;
+    padding: 20px;
     margin-bottom: 15px;
 }
 
@@ -70,12 +70,39 @@ body {
     margin-bottom: 5px;
 }
 
-.fa-bookmark {
-    display: inline-block;
+.titleAndBookmark {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
+
+.fa-bookmark {
+    color : #459486;
+    font-size: 30px;
+}
+
+.bookmarkButton, .bookmarkButton:focus, .bookmarkButton:active {
+    border: none;
+    background: none;
+}
+
+
 
 .titleBooks {
     text-align: left;
-    width: 95%;
-    display: inline-block;
+    font-weight: bold;
+}
+
+.idBooks {
+    text-align: left;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.authorBooks {
+    text-align: left;
+}
+
+.descriptionBooks {
+    text-align: left;
 }

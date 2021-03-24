@@ -33,7 +33,9 @@ const cancelButtonCLick = () => {
     cancelButton.addEventListener('click', function(e) {
         e.preventDefault(); 
         removeNewFormSearch();
-        addButtonNewBook();               
+        addButtonNewBook();
+        removeSearchResult();
+
     });
 }
 
@@ -49,7 +51,7 @@ const searchButtonClick = () => {
     var searchButton = document.getElementById("search");
     searchButton.addEventListener('click', function(e) {
         e.preventDefault(); 
-        ApiCallback();                  
+        ApiCallback();
     });
 }
 
@@ -77,10 +79,10 @@ const searchResult = (response) => {
             if (i.volumeInfo.imageLinks != null) {
                 image = i.volumeInfo.imageLinks.smallThumbnail;
             }
-            if (i.volumeInfo.description != "" || i.volumeInfo.description != "") {
+            if (i.volumeInfo.description != "" && i.volumeInfo.description != null) {
                 description = i.volumeInfo.description;
             }
-            Books.push(new Book(i.id, i.volumeInfo.title, i.volumeInfo.authors[0], image, i.volumeInfo.description));
+            Books.push(new Book(i.id, i.volumeInfo.title, i.volumeInfo.authors[0], image, description));
             
         }
     }
@@ -90,21 +92,55 @@ const searchResult = (response) => {
 }
 
 const addSearchResult = (books) => {
-    var content = document.getElementById("content");
-    content.innerHTML = "<h2>Résultats de recherhce</h2>";
-    var resultPosition = document.querySelector("#content > h2");
+    var resultPosition = document.querySelector("#myBooks > hr");
+    var resultTitle = document.createElement("h2");
+    resultTitle.setAttribute("class","bookResults");
+    resultTitle.innerHTML +=  'Résultats de recherche';
+    resultPosition.after(resultTitle);
     var section = document.createElement("section");
     section.setAttribute("class","bookResults");
     if (books.length > 0 ) {
         for (let book of books) {
-            section.innerHTML += '<article class=sectionBook ><p class="titleBooks">Titre du livre : ' + book.title + '</p><i class="fas fa-bookmark"></i><p class="idBooks">Id : ' + book.id + '</p><p class="authorBooks">Auteur : ' + book.author + '</p><p class="descriptionBook">Description : ' + book.description + '</p><img class = "imageBook" src=' + book.image + '></article>';
-            resultPosition.after(section);
+            section.innerHTML += '<article class=sectionBook ><div class="titleAndBookmark"><p class="titleBooks">Titre du livre : ' + book.title + '</p><button id="' + book.id + '" class="bookmarkButton fas fa-bookmark"  </button></div><p class="idBooks">Id : ' + book.id + '</p><p class="authorBooks">Auteur : ' + book.author + '</p><p class="descriptionBooks">Description : ' + book.description + '</p><img class = "imageBook" src=' + book.image + '></article>';
         }
     } else {
         section.innerHTML = '<p class="searchNull">Aucun livre n’a été trouvé</p>'
-        resultPosition.after(section);
     }
+    resultTitle.after(section);
+    bookmarkButtonClick();
 
+}
+
+const addBookToFav = (id) => {
+    var ids = [];
+    if (sessionStorage.getItem("Fav")) {  
+        ids.push(sessionStorage.getItem("Fav"));
+        ids.push(id);
+        sessionStorage.setItem('Fav', ids);
+      } else {
+            ids.push(id);
+            sessionStorage.setItem('Fav', ids);
+      }
+}
+
+const bookmarkButtonClick = () => {
+    var bookmarkButtons = document.getElementsByClassName("bookmarkButton");
+    for (let bookmarkButton of bookmarkButtons) {
+        bookmarkButton.addEventListener('click', function(e) {
+            addBookToFav(e.target.id);              
+        });
+    }
+}
+
+
+const removeSearchResult = () => {
+    var bookResults = document.getElementsByClassName("bookResults");
+    if (bookResults != null) {
+        for (let bookResult of bookResults ) {
+            console.log(bookResult);
+            bookResult.remove();
+        }
+    }
 }
 
 class Book  {
