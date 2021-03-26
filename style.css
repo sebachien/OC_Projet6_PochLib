@@ -50,7 +50,14 @@ body {
     border: none;
 }
 
-.bookResults {
+#sectionResults {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+
+#sectionFav {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -79,6 +86,16 @@ body {
 .fa-bookmark {
     color : #459486;
     font-size: 30px;
+}
+
+.fas fa-trash-alt {
+    color : #459486;
+    font-size: 30px;
+}
+
+.trashButton, .trashButton:focus, .trashButton:active {
+    border: none;
+    background: none;
 }
 
 .bookmarkButton, .bookmarkButton:focus, .bookmarkButton:active {
