@@ -15,6 +15,9 @@ const initFavListIfExist = () => {
         var recupFavs = window.sessionStorage.getItem("Fav");
         var favsList = JSON.parse(recupFavs);
         addFavResult(favsList);
+    } else {
+        var favsList = [];
+        addFavResult(favsList);
     }
 
 }
@@ -203,9 +206,8 @@ const removeBookToSessionStorage = (id) => {
             if(id == favsList[favNum].id ) {
                 console.log("suppression de : " + favsList[favNum].title);
                 if (favsList.length > 1) {
-                    var newFavsList = favsList.splice(favNum, 1);
-                    console.log("newFavsList : " + newFavsList);
-                    var myFavs = JSON.stringify(newFavsList);
+                    favsList.splice(favNum, 1);
+                    var myFavs = JSON.stringify(favsList);
                     window.sessionStorage.setItem('Fav', myFavs);  
                 } else {
                     window.sessionStorage.removeItem("Fav");

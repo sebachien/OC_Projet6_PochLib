@@ -1,0 +1,19 @@
+{
+  "name": "oc_projet6_pochlib",
+  "version": "1.0.0",
+  "description": "description",
+  "main": "script.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebachien/OC_Projet6_PochLib.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sebachien/OC_Projet6_PochLib/issues"
+  },
+  "homepage": "https://github.com/sebachien/OC_Projet6_PochLib#readme"
+}

@@ -1,0 +1,11 @@
+@import "./utils/variables";
+
+.bookmarkButton{
+    border: none;
+    background: none;
+    
+    &:focus, &:active {
+        border: none;
+        background: none;
+    }
+}

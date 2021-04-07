@@ -1,0 +1,121 @@
+#myBooks {
+    text-align: center;
+}
+
+body {
+    padding: 15px;
+}
+
+.title  {
+    color : #767779;
+    background-color: #EFF0F4;
+    box-shadow: 0px 3px 0px #C6C8C7;
+    margin-top: 5%;
+    
+}
+
+#addBook {
+    background-color: #459486;
+    color: white;
+    padding: 15px 32px;
+    border: none;
+
+}
+
+.formAddBook {
+    text-align: left;
+}
+
+#title, #author {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#search {
+    width: 33%;
+    padding: 15px 32px;
+    margin-bottom: 15px;
+    background-color: #459486;
+    color: white;
+    border: none;
+}
+
+#cancel {
+    width: 33%;
+    padding: 15px 32px;
+    margin-bottom: 15px;
+    background-color: #DF5A4B;
+    color: white;
+    border: none;
+}
+
+#sectionResults {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+
+#sectionFav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+
+.sectionBook {
+    width: 45%;
+    background-color: #E0E0E0;
+    border: solid black 1px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.imageBook {
+    max-width: 50%;
+    margin-bottom: 5px;
+}
+
+.titleAndBookmark {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa-bookmark, .fa-trash-alt {
+    color : #459486;
+    font-size: 30px;
+}
+
+
+.trashButton, .trashButton:focus, .trashButton:active {
+    border: none;
+    background: none;
+}
+
+.bookmarkButton, .bookmarkButton:focus, .bookmarkButton:active {
+    border: none;
+    background: none;
+}
+
+
+
+.titleBooks {
+    text-align: left;
+    font-weight: bold;
+}
+
+.idBooks {
+    text-align: left;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.authorBooks {
+    text-align: left;
+}
+
+.descriptionBooks {
+    text-align: left;
+}
