@@ -1,0 +1,23 @@
+body {
+    padding: 15px;
+    font-family: 'Cabin', sans-serif;
+}
+
+#myBooks {
+    text-align: center;
+}
+
+.title  {
+    color : $color-title;
+    background-color: $color-background-title;
+    box-shadow: 0px 3px 0px #C6C8C7;
+    margin-top: 5%;
+    
+}
+
+#sectionResults, #sectionFav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}

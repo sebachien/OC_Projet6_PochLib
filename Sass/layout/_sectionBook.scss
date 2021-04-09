@@ -1,0 +1,44 @@
+.sectionBook {
+    width: 45%;
+    background-color: $background-sectionBook-color;
+    border: solid black 1px;
+    padding: 20px;
+    margin-bottom: 15px;
+    .titleAndBookmark {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .titleBooks {
+            text-align: left;
+            font-weight: bold;
+        }
+        .fa-bookmark, .fa-trash-alt {
+            color : $primary-color;
+            font-size: 30px;
+        }
+        .bookmarkButton, .trashButton{
+            border: none;
+            background: none;
+            
+            &:focus, &:active {
+                border: none;
+                background: none;
+            }
+        }        
+    }
+    .idBooks {
+        text-align: left;
+        font-weight: bold;
+        font-style: italic;
+    }
+    .authorBooks {
+        text-align: left;
+    }
+    .descriptionBooks {
+        text-align: left;
+    }
+    .imageBook {
+        max-width: 50%;
+        margin-bottom: 5px;
+    }
+}

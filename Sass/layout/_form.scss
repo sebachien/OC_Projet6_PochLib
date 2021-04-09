@@ -1,0 +1,17 @@
+.formAddBook {
+    text-align: left;
+    #title, #author {
+        width: 100%;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    #search {
+        background-color: $primary-color;
+        @include param-button-form;
+    }
+    
+    #cancel {
+        background-color: $cancel-button-color;
+        @include param-button-form;
+    }
+}

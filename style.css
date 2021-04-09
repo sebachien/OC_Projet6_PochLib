@@ -1,10 +1,99 @@
-.bookmarkButton {
+.formAddBook {
+  text-align: left;
+}
+.formAddBook #title, .formAddBook #author {
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.formAddBook #search {
+  background-color: #459486;
+  width: 33%;
+  padding: 15px 32px;
+  margin-bottom: 15px;
+  color: white;
+  border: none;
+}
+.formAddBook #cancel {
+  background-color: #DF5A4B;
+  width: 33%;
+  padding: 15px 32px;
+  margin-bottom: 15px;
+  color: white;
+  border: none;
+}
+
+.sectionBook {
+  width: 45%;
+  background-color: #E0E0E0;
+  border: solid black 1px;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+.sectionBook .titleAndBookmark {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.sectionBook .titleAndBookmark .titleBooks {
+  text-align: left;
+  font-weight: bold;
+}
+.sectionBook .titleAndBookmark .fa-bookmark, .sectionBook .titleAndBookmark .fa-trash-alt {
+  color: #459486;
+  font-size: 30px;
+}
+.sectionBook .titleAndBookmark .bookmarkButton, .sectionBook .titleAndBookmark .trashButton {
   border: none;
   background: none;
 }
-.bookmarkButton:focus, .bookmarkButton:active {
+.sectionBook .titleAndBookmark .bookmarkButton:focus, .sectionBook .titleAndBookmark .bookmarkButton:active, .sectionBook .titleAndBookmark .trashButton:focus, .sectionBook .titleAndBookmark .trashButton:active {
   border: none;
   background: none;
+}
+.sectionBook .idBooks {
+  text-align: left;
+  font-weight: bold;
+  font-style: italic;
+}
+.sectionBook .authorBooks {
+  text-align: left;
+}
+.sectionBook .descriptionBooks {
+  text-align: left;
+}
+.sectionBook .imageBook {
+  max-width: 50%;
+  margin-bottom: 5px;
+}
+
+#addBook {
+  background-color: #459486;
+  color: white;
+  padding: 15px 32px;
+  border: none;
+}
+
+body {
+  padding: 15px;
+  font-family: "Cabin", sans-serif;
+}
+
+#myBooks {
+  text-align: center;
+}
+
+.title {
+  color: #767779;
+  background-color: #EFF0F4;
+  box-shadow: 0px 3px 0px #C6C8C7;
+  margin-top: 5%;
+}
+
+#sectionResults, #sectionFav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 /*# sourceMappingURL=style.css.map */
