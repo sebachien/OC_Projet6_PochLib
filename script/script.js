@@ -88,7 +88,7 @@ const ApiCallback = () => {
 
 const searchResult = (response) => {
     var Books = [];
-    var image = "unavailable.png";
+    var image = "./img/unavailable.png";
     var description = "Information manquante";
     if (response.totalItems > 0) {
         for (let i of response.items) {

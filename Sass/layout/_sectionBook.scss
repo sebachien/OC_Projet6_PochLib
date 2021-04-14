@@ -1,5 +1,10 @@
 .sectionBook {
     width: 45%;
+    //Window width <= screen sm
+    @media (max-width: $screen-sm)
+    {
+        width : 95%;
+    }
     background-color: $background-sectionBook-color;
     border: solid black 1px;
     padding: 20px;

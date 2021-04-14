@@ -2,9 +2,9 @@
   "name": "oc_projet6_pochlib",
   "version": "1.0.0",
   "description": "description",
-  "main": "script.js",
+  "main": "./script/script.js",
   "scripts": {
-    "sass": "sass --watch ./sass/main.scss:./style.css"
+    "sass": "sass --watch ./sass/main.scss:./style/style.css"
   },
   "repository": {
     "type": "git",
