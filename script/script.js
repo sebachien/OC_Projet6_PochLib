@@ -3,7 +3,6 @@ const addButtonNewBook = () => {
     var button = document.createElement("BUTTON");
     button.innerHTML = "Ajouter un livre";
     button.setAttribute("id","addBook");
-    console.log(selectButtonPosition);
     selectButtonPosition.after(button);
     newBookButtonClick();
     initFavListIfExist();
@@ -102,21 +101,17 @@ const searchResult = (response) => {
             
         }
     }
-    console.log(Books);
     addSearchResult(Books);
 
 }
 
 const addSearchBookToSessionStorage = (books) => {
     if (window.sessionStorage.getItem("SearchBook")) {
-        console.log("SearchBook exsiste");
         window.sessionStorage.removeItem("SearchBook");
         var stringBooks = JSON.stringify(books);
-        console.log(stringBooks);
         window.sessionStorage.setItem("SearchBook", stringBooks);
     } else {
         var stringBooks = JSON.stringify(books);
-        console.log(stringBooks);
         window.sessionStorage.setItem("SearchBook", stringBooks);    
     }
 }
@@ -170,13 +165,11 @@ const addBookToSessionStorage = (id) => {
     }
     var exist = false;
     if (window.sessionStorage.getItem("Fav")) {
-        console.log("fav exsiste");
         var recupFavs = window.sessionStorage.getItem("Fav");
         var favsList = JSON.parse(recupFavs);
 
         for (let fav of favsList ) {
             if(bookToAdd.id == fav.id && exist == false) {
-                console.log("elert");
                 alert("déja dans les favoris");
                 exist = true;
             }
@@ -239,7 +232,6 @@ const trashButtonClick = () => {
 const removeSearchResult = () => {
     var bookResults = document.getElementById("bookResults");
     if (bookResults != null) {
-            console.log(bookResults);
             bookResults.remove();
     }
 }
